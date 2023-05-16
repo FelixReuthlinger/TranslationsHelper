@@ -43,7 +43,8 @@ namespace TranslationsHelper
 
         private const string Vanilla = "vanilla";
         private static readonly string OutputPath = Path.Combine(Paths.ConfigPath, "TranslationsPrinterOutput");
-
+        private const string FileSuffix = ".English.yml";
+        
         public static void WriteData(string prefabNamePrefixFilter)
         {
             Dictionary<string, Dictionary<string, string>> filteredTranslations =
@@ -60,7 +61,7 @@ namespace TranslationsHelper
                     Logger.LogInfo(
                         $"mod '{modGroup.Key}' - filtering prefab name using the prefix {prefabNamePrefixFilter} " +
                         $"did yield {prefabCount} found prefabs");
-                    WriteData(modGroup.Value, Path.Combine(OutputPath, $"{modGroup.Key}.English.yaml"));
+                    WriteData(modGroup.Value, Path.Combine(OutputPath, $"{modGroup.Key}{FileSuffix}"));
                 }
                 else
                 {
@@ -75,11 +76,9 @@ namespace TranslationsHelper
         {
             foreach (KeyValuePair<string, Dictionary<string, string>> modGroup in Translations)
             {
-                int prefabCount = modGroup.Value.Count;
-                if (prefabCount > 0)
+                if (modGroup.Value.Count > 0)
                 {
-                    string fileName = Path.Combine(OutputPath, $"{modGroup.Key}.English.yaml");
-                    WriteData(modGroup.Value, fileName);
+                    WriteData(modGroup.Value, Path.Combine(OutputPath, $"{modGroup.Key}{FileSuffix}"));
                 }
             }
         }
@@ -100,7 +99,7 @@ namespace TranslationsHelper
             }
 
             File.WriteAllText(filPath, fileContent);
-            Logger.LogInfo($"wrote yaml content to file '{filPath}'");
+            Logger.LogInfo($"wrote content to file '{filPath}'");
         }
 
         private static Dictionary<string, TranslationModel> ListAllTranslations()
