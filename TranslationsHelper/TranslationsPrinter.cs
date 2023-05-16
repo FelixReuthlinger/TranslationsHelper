@@ -9,7 +9,6 @@ using Paths = BepInEx.Paths;
 
 namespace TranslationsHelper
 {
-
     public class TranslationModel
     {
         public TranslationModel(ItemDrop fromItemDrop)
@@ -95,10 +94,11 @@ namespace TranslationsHelper
             Logger.LogInfo($"writing {translations.Count} entries to file '{filPath}'");
             var fileContent = "";
             var sortedKeys = translations.Keys.OrderBy(k => k);
-            foreach(var key in sortedKeys)
+            foreach (var key in sortedKeys)
             {
                 fileContent += $"{key}: \"{translations[key]}\"\n";
             }
+
             File.WriteAllText(filPath, fileContent);
             Logger.LogInfo($"wrote yaml content to file '{filPath}'");
         }
@@ -123,7 +123,8 @@ namespace TranslationsHelper
         private static Dictionary<string, string> RegisterPrefabMods()
         {
             return ModQuery.GetPrefabs()
-                .ToDictionary(modPrefab => modPrefab.Prefab.name, modPrefab => modPrefab.SourceMod.Name);
+                .ToLookup(modPrefab => modPrefab.Prefab.name, modPrefab => modPrefab.SourceMod.Name)
+                .ToDictionary(group => group.Key, group => group.First());
         }
 
         private static Dictionary<string, Dictionary<string, string>> TransformPrefabsToTranslationsPerMod()
