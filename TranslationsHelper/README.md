@@ -2,7 +2,8 @@
 
 Mod for helping modders that maintain huge amounts of prefabs and want to provide translations files for those.
 This mod will help you pre-generate all translations files that you need to provide with your .dll in English language.
-Any prefabs that have a missing `m_name` or `m_description` will be printed with an empty String ("").
+Any prefabs that have a missing `m_name` or `m_description` will be printed with a String ("[token name]") that shows
+missing translation.
 
 At Krumpac's Reforge mod pack we are using this mod to keep track of the 1600 added prefabs and all their translations,
 which would be a lot of work without automation.
@@ -18,10 +19,18 @@ Output available for in-game Valheim types:
 
 * ItemDrop
 * Piece
-* ... more to come
+* Character
+* Smelter
+* Fermenter
+* CookingStation
+* Incinerator
+* OfferingBowl
+* SapCollector
+* Beehive
 
-For those types the mod will use the `m_name` and `m_description` fields located inside those types, the pre-generated
-translation String is taken from any available text that comes with the prefab or the mod that introduced it.
+For the simpler types the mod will use the `m_name` and `m_description` fields located inside those types, the
+pre-generated translation String is taken from any available text that comes with the prefab or the mod that introduced
+it. More complex types that have additional texts or switches will also have those printed.
 
 ### Filter output
 
@@ -73,6 +82,6 @@ runemagic_DryLandRune_Description: "Rising sea levels are no longer a concern."
   <summary>Contact</summary>
 
 * https://github.com/FelixReuthlinger/TranslationsHelper
-* Discord: Flux#0062 (you can find me around some of the Valheim modding discords, too)
+* Discord: fluuxxx (you can find me around some of the Valheim modding discords, too)
 
 </details>

@@ -2,6 +2,7 @@
 using Jotunn;
 using Jotunn.Entities;
 using Jotunn.Managers;
+using Jotunn.Utils;
 
 namespace TranslationsHelper
 {
@@ -11,11 +12,13 @@ namespace TranslationsHelper
     {
         private const string PluginAuthor = "FixItFelix";
         private const string PluginName = "TranslationsHelper";
-        private const string PluginVersion = "1.0.0";
-        public const string PluginGuid = PluginAuthor + "." + PluginName;
+        private const string PluginVersion = "1.0.5";
+        private const string PluginGuid = PluginAuthor + "." + PluginName;
 
         private void Awake()
         {
+            ModQuery.Enable();
+            PrefabManager.OnPrefabsRegistered += TranslationsRegistry.Initialize;
             CommandManager.Instance.AddConsoleCommand(new TranslationsPrinterController());
         }
     }
@@ -24,14 +27,14 @@ namespace TranslationsHelper
     {
         public override void Run(string[] args)
         {
-            Logger.LogInfo($"TranslationsPrinterController called with args '{string.Join(" - ", args)}'");
             if (args.Length > 0)
             {
+                Logger.LogInfo($"TranslationsPrinterController called with args '{string.Join(" - ", args)}'");
                 TranslationsPrinter.WriteData(args[0]);
             }
             else
             {
-                TranslationsPrinter.WriteData();
+                TranslationsPrinter.WriteData("");
             }
         }
 
