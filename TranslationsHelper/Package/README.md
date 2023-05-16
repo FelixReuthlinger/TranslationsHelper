@@ -1,4 +1,4 @@
-﻿# Translations Helper
+# Translations Helper
 
 Mod for helping modders that maintain huge amounts of prefabs and want to provide translations files for those.
 This mod will help you pre-generate all translations files that you need to provide with your .dll in English language.
