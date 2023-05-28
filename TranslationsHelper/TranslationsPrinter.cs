@@ -1,41 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using JetBrains.Annotations;
 using Jotunn;
 using Jotunn.Managers;
 using Jotunn.Utils;
+using TranslationsHelper.models;
 using Paths = BepInEx.Paths;
 
 namespace TranslationsHelper
 {
-    public class TranslationModel
-    {
-        public TranslationModel(ItemDrop fromItemDrop)
-        {
-            Name = fromItemDrop.name;
-            TranslationNameToken = fromItemDrop.m_itemData.m_shared.m_name;
-            TranslationDescriptionToken = fromItemDrop.m_itemData.m_shared.m_description;
-            TranslatedName = Localization.instance.Localize(TranslationNameToken);
-            TranslatedDescription = Localization.instance.Localize(TranslationDescriptionToken);
-        }
-
-        public TranslationModel(Piece fromPiece)
-        {
-            Name = fromPiece.name;
-            TranslationNameToken = fromPiece.m_name;
-            TranslationDescriptionToken = fromPiece.m_description;
-            TranslatedName = Localization.instance.Localize(TranslationNameToken);
-            TranslatedDescription = Localization.instance.Localize(TranslationDescriptionToken);
-        }
-
-        [UsedImplicitly] public readonly string Name;
-        [UsedImplicitly] public readonly string TranslationNameToken;
-        [UsedImplicitly] public readonly string TranslationDescriptionToken;
-        [UsedImplicitly] public readonly string TranslatedName;
-        [UsedImplicitly] public readonly string TranslatedDescription;
-    }
-
     public static class TranslationsPrinter
     {
         private static readonly Dictionary<string, Dictionary<string, string>> Translations =
@@ -44,7 +17,7 @@ namespace TranslationsHelper
         private const string Vanilla = "vanilla";
         private static readonly string OutputPath = Path.Combine(Paths.ConfigPath, "TranslationsPrinterOutput");
         private const string FileSuffix = ".English.yml";
-        
+
         public static void WriteData(string prefabNamePrefixFilter)
         {
             Dictionary<string, Dictionary<string, string>> filteredTranslations =
@@ -102,16 +75,16 @@ namespace TranslationsHelper
             Logger.LogInfo($"wrote content to file '{filPath}'");
         }
 
-        private static Dictionary<string, TranslationModel> ListAllTranslations()
+        private static Dictionary<string, CommonModel> ListAllTranslations()
         {
             LocalizationManager.Instance.GetLocalization().GetTranslations(LocalizationManager.DefaultLanguage);
 
-            List<Dictionary<string, TranslationModel>> results = new()
+            List<Dictionary<string, CommonModel>> results = new()
             {
                 PrefabManager.Cache.GetPrefabs(typeof(ItemDrop))
-                    .ToDictionary(pair => pair.Key, pair => new TranslationModel((ItemDrop)pair.Value)),
+                    .ToDictionary(pair => pair.Key, pair => new CommonModel((ItemDrop)pair.Value)),
                 PrefabManager.Cache.GetPrefabs(typeof(Piece))
-                    .ToDictionary(pair => pair.Key, pair => new TranslationModel((Piece)pair.Value)),
+                    .ToDictionary(pair => pair.Key, pair => new CommonModel((Piece)pair.Value)),
             };
             return results.SelectMany(dict => dict)
                 .ToLookup(pair => pair.Key, pair => pair.Value)
@@ -129,14 +102,14 @@ namespace TranslationsHelper
         private static Dictionary<string, Dictionary<string, string>> TransformPrefabsToTranslationsPerMod()
         {
             Dictionary<string, string> prefabModMapping = RegisterPrefabMods();
-            Dictionary<string, TranslationModel> translations = ListAllTranslations();
+            Dictionary<string, CommonModel> translations = ListAllTranslations();
             Dictionary<string, Dictionary<string, string>> results = new();
             var prefabsGroupedPerMod = translations
                 .GroupBy(pair => prefabModMapping.TryGetValue(pair.Key, out var modName) ? modName : Vanilla);
             foreach (var modGroup in prefabsGroupedPerMod.Where(group => group.Key != Vanilla))
             {
                 string modName = modGroup.Key;
-                Dictionary<string, TranslationModel> modPrefabs =
+                Dictionary<string, CommonModel> modPrefabs =
                     modGroup.ToDictionary(pair => pair.Key, pair => pair.Value);
                 Dictionary<string, string> translatedNames =
                     modPrefabs.ToDictionary(pair => pair.Value.Name,

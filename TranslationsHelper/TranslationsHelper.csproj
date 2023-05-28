@@ -72,6 +72,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="models\BeehiveModel.cs" />
+    <Compile Include="models\CommonModel.cs" />
+    <Compile Include="models\CookingStationModel.cs" />
+    <Compile Include="models\CraftingStationModel.cs" />
+    <Compile Include="models\FermenterModel.cs" />
+    <Compile Include="models\FireplaceModel.cs" />
+    <Compile Include="models\IncineratorModel.cs" />
+    <Compile Include="models\MapTableModel.cs" />
+    <Compile Include="models\OfferingBowlModel.cs" />
+    <Compile Include="models\SapCollectorModel.cs" />
+    <Compile Include="models\SmelterModel.cs" />
+    <Compile Include="models\SwitchModel.cs" />
     <Compile Include="TranslationsPrinter.cs" />
     <Compile Include="Properties\IgnoreAccessModifiers.cs" />
     <Compile Include="TranslationsHelper.cs" />
