@@ -39,6 +39,8 @@ public static class TranslationsRegistry
                             return new OfferingBowlModel(offeringBowl).Translate();
                         if (prefab.Prefab.TryGetComponent(out SapCollector sapCollector))
                             return new SapCollectorModel(sapCollector).Translate();
+                        if (prefab.Prefab.TryGetComponent(out HoverText hoverText))
+                            return new NameModel(hoverText).Translate();
                         return new List<string>();
                     }
                 ).ToList()

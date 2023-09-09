@@ -27,6 +27,7 @@ Output available for in-game Valheim types:
 * OfferingBowl
 * SapCollector
 * Beehive
+* HoverText
 
 For the simpler types the mod will use the `m_name` and `m_description` fields located inside those types, the
 pre-generated translation String is taken from any available text that comes with the prefab or the mod that introduced

@@ -120,7 +120,6 @@
     <None Include="README.md" />
     <None Include="Package\manifest.json" />
     <Content Include="Package\icon.png" />
-    <Folder Include="Package\plugins\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="JotunnPostBuildTaskWin" Condition="'$(OS)' == 'Windows_NT'">

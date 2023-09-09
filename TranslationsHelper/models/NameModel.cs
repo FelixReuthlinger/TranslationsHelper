@@ -19,6 +19,10 @@ public class NameModel : Translatable
     {
     }
 
+    public NameModel(HoverText fromHoverText) : this(internalName: fromHoverText.name, nameToken: fromHoverText.m_text)
+    {
+    }
+
     public override List<string> Translate()
     {
         Logger.LogInfo($"translating {Name} to {TranslateTokenToPair(TranslationNameToken)}");

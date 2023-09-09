@@ -1,3 +1,5 @@
+* 1.0.6 ->
+    * added HoverText type
 * 1.0.5 ->
     * fixed issues not providing translations
     * added types Character, Beehive, CookingStation, Fermenter, Incinerator, MapTable, OfferingBowl, SapCollector,
