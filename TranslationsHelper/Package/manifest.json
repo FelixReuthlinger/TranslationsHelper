@@ -1,10 +1,10 @@
 ﻿{
   "name": "TranslationsHelper",
   "description": "Mod made for modders to simplify generating translation files for their prefabs.",
-  "version_number": "1.0.6",
+  "version_number": "1.0.7",
   "website_url": "https://github.com/FelixReuthlinger/TranslationsHelper",
   "dependencies": [
-    "ValheimModding-Jotunn-2.12.7",
+    "ValheimModding-Jotunn-2.14.1",
     "denikson-BepInExPack_Valheim-5.4.2105"
   ]
 }

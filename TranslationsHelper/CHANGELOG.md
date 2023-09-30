@@ -1,3 +1,4 @@
+* 1.0.7 -> updated dependencies
 * 1.0.6 ->
     * added HoverText type
 * 1.0.5 ->

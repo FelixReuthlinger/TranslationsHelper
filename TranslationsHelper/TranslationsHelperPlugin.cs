@@ -12,7 +12,7 @@ namespace TranslationsHelper
     {
         private const string PluginAuthor = "FixItFelix";
         private const string PluginName = "TranslationsHelper";
-        private const string PluginVersion = "1.0.5";
+        private const string PluginVersion = "1.0.7";
         private const string PluginGuid = PluginAuthor + "." + PluginName;
 
         private void Awake()
