@@ -12,8 +12,8 @@ namespace TranslationsHelper
     {
         private const string PluginAuthor = "FixItFelix";
         private const string PluginName = "TranslationsHelper";
-        private const string PluginVersion = "1.0.8";
-        private const string PluginGuid = PluginAuthor + "." + PluginName;
+        internal const string PluginVersion = "1.0.8";
+        internal const string PluginGuid = PluginAuthor + "." + PluginName;
 
         private void Awake()
         {
