@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\JotunnLib.2.15.2\build\JotunnLib.props" Condition="Exists('..\packages\JotunnLib.2.15.2\build\JotunnLib.props')" />
   <Import Project="..\packages\JotunnLib.2.14.6\build\JotunnLib.props" Condition="Exists('..\packages\JotunnLib.2.14.6\build\JotunnLib.props')" />
   <Import Project="..\packages\JotunnLib.2.12.7\build\JotunnLib.props" Condition="Exists('..\packages\JotunnLib.2.12.7\build\JotunnLib.props')" />
   <PropertyGroup>
@@ -60,8 +61,8 @@
     <Reference Include="BepInEx">
       <HintPath>$(VALHEIM_INSTALL)\BepInEx\core\BepInEx.dll</HintPath>
     </Reference>
-    <Reference Include="Jotunn, Version=2.14.6.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\JotunnLib.2.14.6\lib\net462\Jotunn.dll</HintPath>
+    <Reference Include="Jotunn, Version=2.15.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\JotunnLib.2.15.2\lib\net462\Jotunn.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Mono.Cecil, Version=0.11.4.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
@@ -105,10 +106,14 @@
     <Compile Include="models\MapTableModel.cs" />
     <Compile Include="models\NameModel.cs" />
     <Compile Include="models\OfferingBowlModel.cs" />
+    <Compile Include="models\RuneStoneModel.cs" />
     <Compile Include="models\SapCollectorModel.cs" />
+    <Compile Include="models\ShipControlModel.cs" />
     <Compile Include="models\SmelterModel.cs" />
     <Compile Include="models\SwitchModel.cs" />
+    <Compile Include="models\TeleportModel.cs" />
     <Compile Include="models\Translateable.cs" />
+    <Compile Include="models\VegvisirModel.cs" />
     <Compile Include="TranslationsPrinter.cs" />
     <Compile Include="Properties\IgnoreAccessModifiers.cs" />
     <Compile Include="TranslationsHelperPlugin.cs" />
@@ -116,6 +121,7 @@
     <Compile Include="TranslationsRegistry.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="CHANGELOG.md" />
     <None Include="packages.config" />
     <None Include="README.md" />
@@ -138,5 +144,6 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\JotunnLib.2.12.7\build\JotunnLib.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\JotunnLib.2.12.7\build\JotunnLib.props'))" />
     <Error Condition="!Exists('..\packages\JotunnLib.2.14.6\build\JotunnLib.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\JotunnLib.2.14.6\build\JotunnLib.props'))" />
+    <Error Condition="!Exists('..\packages\JotunnLib.2.15.2\build\JotunnLib.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\JotunnLib.2.15.2\build\JotunnLib.props'))" />
   </Target>
 </Project>

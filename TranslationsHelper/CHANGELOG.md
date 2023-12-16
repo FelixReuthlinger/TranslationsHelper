@@ -1,3 +1,6 @@
+* 1.1.0 -> 
+  * added a couple of new types to also get translations for them
+  * compiled for 0.217.38
 * 1.0.9 -> updated dependencies, compiled for 0.217.30
 * 1.0.8 -> updated dependencies, compiled for 0.217.24
 * 1.0.7 -> updated dependencies

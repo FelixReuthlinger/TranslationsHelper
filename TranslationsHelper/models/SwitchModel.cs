@@ -9,6 +9,11 @@ public class SwitchModel : NameModel
     {
         HoverTextToken = original.m_hoverText;
     }
+    
+    public SwitchModel(ToggleSwitch original) : base(internalName: original.name, nameToken: original.m_name)
+    {
+        HoverTextToken = original.m_hoverText;
+    }
 
     [UsedImplicitly] public readonly string HoverTextToken;
 

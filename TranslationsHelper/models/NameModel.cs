@@ -23,6 +23,30 @@ public class NameModel : Translatable
     {
     }
 
+    public NameModel(MineRock fromMineRock) : this(internalName: fromMineRock.name, nameToken: fromMineRock.m_name)
+    {
+    }
+    
+    public NameModel(MineRock5 fromMineRock5) : this(internalName: fromMineRock5.name, nameToken: fromMineRock5.m_name)
+    {
+    }
+    
+    public NameModel(ItemStand fromItemStand) : this(internalName: fromItemStand.name, nameToken: fromItemStand.m_name)
+    {
+    }
+    
+    public NameModel(Ladder fromLadder) : this(internalName: fromLadder.name, nameToken: fromLadder.m_name)
+    {
+    }
+    
+    public NameModel(Plant fromPlant) : this(internalName: fromPlant.name, nameToken: fromPlant.m_name)
+    {
+    }
+    
+    public NameModel(Chair fromChair) : this(internalName: fromChair.name, nameToken: fromChair.m_name)
+    {
+    }
+
     public override List<string> Translate()
     {
         Logger.LogInfo($"translating {Name} to {TranslateTokenToPair(TranslationNameToken)}");

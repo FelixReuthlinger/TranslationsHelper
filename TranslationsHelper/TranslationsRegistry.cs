@@ -39,11 +39,31 @@ public static class TranslationsRegistry
                             return new OfferingBowlModel(offeringBowl).Translate();
                         if (prefab.Prefab.TryGetComponent(out SapCollector sapCollector))
                             return new SapCollectorModel(sapCollector).Translate();
+                        if (prefab.Prefab.TryGetComponent(out MineRock mineRock)) 
+                            return new NameModel(mineRock).Translate();
+                        if (prefab.Prefab.TryGetComponent(out MineRock5 mineRock5)) 
+                            return new NameModel(mineRock5).Translate();
+                        if (prefab.Prefab.TryGetComponent(out ItemStand itemStand)) 
+                            return new NameModel(itemStand).Translate();
+                        if (prefab.Prefab.TryGetComponent(out Ladder ladder)) 
+                            return new NameModel(ladder).Translate();
+                        if (prefab.Prefab.TryGetComponent(out Plant plant)) 
+                            return new NameModel(plant).Translate();
+                        if (prefab.Prefab.TryGetComponent(out RuneStone runeStone)) 
+                            return new RuneStoneModel(runeStone).Translate();
+                        if (prefab.Prefab.TryGetComponent(out ShipControlls shipControlls)) 
+                            return new ShipControlModel(shipControlls).Translate();
+                        if (prefab.Prefab.TryGetComponent(out Teleport teleport)) 
+                            return new TeleportModel(teleport).Translate();
+                        if (prefab.Prefab.TryGetComponent(out Switch switchObject)) 
+                            return new SwitchModel(switchObject).Translate();
+                        if (prefab.Prefab.TryGetComponent(out ToggleSwitch toggleSwitch)) 
+                            return new SwitchModel(toggleSwitch).Translate();
                         if (prefab.Prefab.TryGetComponent(out HoverText hoverText))
                             return new NameModel(hoverText).Translate();
                         return new List<string>();
                     }
-                ).ToList()
+                ).Distinct().ToList()
             );
         foreach (KeyValuePair<string, List<string>> pair in result)
         {
