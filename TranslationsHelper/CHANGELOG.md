@@ -1,3 +1,5 @@
+* 1.1.1 ->
+  * fixed handling multiple types for prefabs, now it might get you the ultimate amount of translations, finally :)
 * 1.1.0 -> 
   * added a couple of new types to also get translations for them
   * compiled for 0.217.38

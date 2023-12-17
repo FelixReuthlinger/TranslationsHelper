@@ -49,10 +49,6 @@ public class NameModel : Translatable
 
     public override List<string> Translate()
     {
-        Logger.LogInfo($"translating {Name} to {TranslateTokenToPair(TranslationNameToken)}");
-        return new List<string>
-        {
-            TranslateTokenToPair(TranslationNameToken)
-        };
+        return new List<string> { TranslateTokenToPair(TranslationNameToken) };
     }
 }

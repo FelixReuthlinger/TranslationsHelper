@@ -5,9 +5,9 @@ namespace TranslationsHelper.models;
 
 public class SwitchModel : NameModel
 {
-    public SwitchModel(Switch original) : base(internalName: original.name, nameToken: original.m_name)
+    public SwitchModel(Switch? original) : base(internalName: original?.name ?? string.Empty, nameToken: original?.m_name ?? string.Empty) 
     {
-        HoverTextToken = original.m_hoverText;
+        HoverTextToken = original?.m_hoverText ?? string.Empty;
     }
     
     public SwitchModel(ToggleSwitch original) : base(internalName: original.name, nameToken: original.m_name)
