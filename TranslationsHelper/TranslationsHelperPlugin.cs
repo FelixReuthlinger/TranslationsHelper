@@ -18,7 +18,7 @@ namespace TranslationsHelper
         private void Awake()
         {
             ModQuery.Enable();
-            PrefabManager.OnPrefabsRegistered += TranslationsRegistry.Initialize;
+            // PrefabManager.OnPrefabsRegistered += TranslationsRegistry.Initialize;
             CommandManager.Instance.AddConsoleCommand(new TranslationsPrinterController());
         }
     }
@@ -27,6 +27,7 @@ namespace TranslationsHelper
     {
         public override void Run(string[] args)
         {
+            TranslationsRegistry.Initialize();
             if (args.Length > 0)
             {
                 Logger.LogInfo($"TranslationsPrinterController called with args '{string.Join(" - ", args)}'");
