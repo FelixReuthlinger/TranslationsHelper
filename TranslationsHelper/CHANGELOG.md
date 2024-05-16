@@ -1,3 +1,5 @@
+* 1.1.2 ->
+  * updated (no code change required) for Ashlands Valheim version 0.218.15
 * 1.1.1 ->
   * fixed handling multiple types for prefabs, now it might get you the ultimate amount of translations, finally :)
 * 1.1.0 -> 
