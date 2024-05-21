@@ -97,6 +97,7 @@
     <Compile Include="models\MapTableModel.cs" />
     <Compile Include="models\NameModel.cs" />
     <Compile Include="models\OfferingBowlModel.cs" />
+    <Compile Include="models\PickableModel.cs" />
     <Compile Include="models\RuneStoneModel.cs" />
     <Compile Include="models\SapCollectorModel.cs" />
     <Compile Include="models\ShipControlModel.cs" />

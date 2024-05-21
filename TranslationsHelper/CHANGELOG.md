@@ -1,3 +1,5 @@
+* 1.1.3 -> 
+  * added "Pickable" type to model
 * 1.1.2 ->
   * updated (no code change required) for Ashlands Valheim version 0.218.15
 * 1.1.1 ->

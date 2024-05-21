@@ -75,6 +75,8 @@ public static class TranslationsRegistry
             strings.AddRange(new SwitchModel(toggleSwitch).Translate());
         if (prefab.Prefab.TryGetComponent(out HoverText hoverText))
             strings.AddRange(new NameModel(hoverText).Translate());
+        if(prefab.Prefab.TryGetComponent(out Pickable pickable))
+            strings.AddRange(new PickableModel(pickable).Translate());
         return strings;
     }
 }
